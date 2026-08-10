@@ -1,0 +1,82 @@
+<!Doctype html>
+
+<html>
+
+<head>
+	<link rel="stylesheet" href="a.css">
+	<meta charset="UTF-8">
+	<meta lang="en-US">
+
+	<meta name="viewport" content="width=device-width,
+initial-scale=1.0">
+	<title>Document</title>
+
+
+
+</head>
+
+<body>
+
+	<header>
+		<div class="container-fluid">
+			<div class="row">
+
+				<div class="col-12">
+
+					<h1>Shabbir Son's Video Player</h1>
+				</div>
+			</div>
+
+		</div>
+
+	</header>
+	<section>
+		<div class="container-fluid">
+			<div class="row">
+
+				<div class="col-12">
+
+					<video src="two.mp4" width="720" height="445" id="box" ></video>
+				</div>
+			</div>
+
+		</div>
+
+
+	</section>
+	<footer>
+
+		<button id="ubtn">
+			Upload
+			<input type="file" accept="vedio/*" id="upload">
+		</button>
+		<button onclick="vplay()" id="play">Play</button>
+		<button onclick="vpause()" id="pause">Pause</button>
+	</footer>
+	<script>
+		function vplay() {
+			var a = document.getElementById("box");
+			a.play();
+
+		}
+
+		function vpause() {
+			var a = document.getElementById("box");
+			a.pause();
+		}
+		var btn = document.getElementById("upload");
+		btn.onchange = function () {
+			var reader = new FileReader();
+			reader.readAsDataURL(btn.files[0]);
+
+			reader.onload = function () {
+				var file_name = reader.result;
+				var vedio = document.getElementById("box");
+				vedio.src = file_name;
+			}
+		}
+
+	</script>
+</body>
+
+</html>
